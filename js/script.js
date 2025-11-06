@@ -8,7 +8,7 @@ function welcomeMessage() {
     if (name != null) {
 
         /// Set the welcome message
-        document.getElementById('welcome-speech').innerHTML = 'Hello ' + name + ', welcome to Yama Company!';
+        document.getElementById('welcome-speech').innerHTML = 'Hello ' + name + ', welcome to O Company!';
     }
 }
 
