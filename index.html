@@ -39,6 +39,9 @@
             <p class="mt-2">We are glad to have you here. Explore our services and offerings.</p>
         </section>
 
+        <align="center">
+        <img src="O Company.png" weidth="1366" height="578" alt="O Company Image" class="mx-auto my-4" />
+
         <!-- Our Profile Page -->
         <section id="our-profile-page" class="min-h-[500px] text-center">
             <h2 class="text-xl font-bold">About O Company</h2>
@@ -53,30 +56,109 @@
         </section>
 
         <!-- Message Us Page -->
-        <section id="message-us-page" class="min-h-[500px] max-w-lg mx-auto">
-            <header>
-                <h2 class="text-xl font-bold">Message Us</h2>
-                <p class="mt-2">Have questions or want to work with us? Send us a message and we'll get back to you
-                    promptly.</p>
-            </header>
+         <section id="message-us-page" class="min-h-[500px] text-center">
+            <h2 class="text-xl font-bold">Get in Touch</h2>
+            <p class="mt-2">We would love to hear from you! Send us a message using the form below.</p>
 
-            <form>
-                <div class="mb-4">
-                    <label class="block mb-2" for="name">Name:</label>
-                    <input class="w-full p-2 border rounded" type="text" id="name" name="name" required />
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2" for="email">Email:</label>
-                    <input class="w-full p-2 border rounded" type="email" id="email" name="email" required />
-                </div>
-                <div class="mb-4">
-                    <label class="block mb-2" for="message">Message:</label>
-                    <textarea class="w-full p-2 border rounded" id="message" name="message" rows="5"
-                        required></textarea>
-                </div>
-                <button class="px-4 py-2 bg-blue-500 text-white rounded" type="submit">Send Message</button>
-            </form>
-        </section>
+        <div class="divider"></div>
+
+    <section class="message-area" aria-label="Message Us section">
+      <form class="form-card" id="contactForm" onsubmit="return false" autocomplete="off" aria-labelledby="formTitle">
+        <h3 id="formTitle">Message Us</h3>
+
+        <div class="form-row">
+          <label for="name">Nama</label>
+          <input id="name" name="name" type="text" placeholder="Nama lengkap" required />
+        </div>
+
+        <div class="form-row">
+          <label for="dob">Tanggal Lahir</label>
+          <input id="dob" name="dob" type="date" />
+        </div>
+
+        <div class="form-row">
+          <label>Jenis Kelamin</label>
+          <div class="gender">
+            <label><input type="radio" name="gender" value="Laki-Laki" checked /> Laki-Laki</label>
+            <label><input type="radio" name="gender" value="Perempuan" /> Perempuan</label>
+          </div>
+        </div>
+
+        <div class="form-row" style="align-items:flex-start">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" placeholder="Tulis pesan..."></textarea>
+        </div>
+
+        <button class="btn-submit" id="submitBtn" type="button">Submit</button>
+      </form>
+
+      <aside class="preview" aria-live="polite" aria-atomic="true">
+        <div class="time" id="currentTime">Current time: ...</div>
+        <div><strong>Nama:</strong> <span id="pv-name">-</span></div>
+        <div><strong>Tanggal Lahir:</strong> <span id="pv-dob">-</span></div>
+        <div><strong>Jenis Kelamin:</strong> <span id="pv-gender">-</span></div>
+        <div class="line"><strong>Pesan:</strong>
+          <div id="pv-message" style="white-space:pre-wrap;margin-top:6px; color:#222">-</div>
+        </div>
+      </aside>
+    </section>
+
+    <script>
+  // Ambil semua elemen form
+  const nameInput = document.getElementById('name');
+  const dobInput = document.getElementById('dob');
+  const messageInput = document.getElementById('message');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Elemen untuk preview hasil
+  const pvName = document.getElementById('pv-name');
+  const pvDob = document.getElementById('pv-dob');
+  const pvGender = document.getElementById('pv-gender');
+  const pvMessage = document.getElementById('pv-message');
+  const timeDisplay = document.getElementById('currentTime');
+
+  // Fungsi update waktu real-time
+  function updateTime() {
+    const now = new Date();
+    timeDisplay.textContent = 'Current time : ' + now.toString();
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+
+  // Fungsi ambil jenis kelamin
+  function getGender() {
+    const radios = document.getElementsByName('gender');
+    for (let r of radios) {
+      if (r.checked) return r.value;
+    }
+    return '-';
+  }
+
+  // Event klik tombol Submit
+  submitBtn.addEventListener('click', function() {
+    const name = nameInput.value.trim();
+    const dob = dobInput.value;
+    const gender = getGender();
+    const message = messageInput.value.trim();
+
+    // Validasi sederhana
+    if (!name) {
+      alert('Nama harus diisi!');
+      nameInput.focus();
+      return;
+    }
+
+    // Tampilkan hasil di sisi kanan
+    pvName.textContent = name;
+    pvDob.textContent = dob ? new Date(dob).toLocaleDateString() : '-';
+    pvGender.textContent = gender;
+    pvMessage.textContent = message || '-';
+
+    // Efek animasi kecil saat submit
+    submitBtn.textContent = 'Terkirim ✓';
+    setTimeout(() => submitBtn.textContent = 'Submit', 1500);
+  });
+</script>
 
     </main>
 
@@ -89,6 +171,7 @@
 
     <!-- JS External File Link -->
     <script src="js/script.js"></script>
+
 </body>
 
 </html>

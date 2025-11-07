@@ -12,3 +12,135 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+.message-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 20px;
+  padding: 25px 40px;
+}
+
+
+.form-card {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px 25px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-card h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+label {
+  width: 120px;
+  font-size: 14px;
+  color: #222;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  outline: none;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: #007bff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ===== RADIO BUTTON ===== */
+.gender {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.gender label {
+  width: auto;
+  font-size: 14px;
+}
+
+
+.btn-submit {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #005dc0;
+}
+
+
+.preview {
+  width: 40%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  color: #333;
+}
+
+.preview .time {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.preview strong {
+  color: #222;
+}
+
+.preview .line {
+  margin-top: 8px;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+}
+
+
+@media (max-width: 800px) {
+  .message-area {
+    flex-direction: column;
+  }
+
+  .preview {
+    width: 100%;
+  }
+}
